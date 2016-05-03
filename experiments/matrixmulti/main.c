@@ -1,0 +1,51 @@
+#include <iostream>
+#include<iomanip>
+#include <time.h>
+
+#include "include/matrixMulti.h"
+
+using namespace std;
+typedef int* intptr;
+int main(void) {
+
+	int i,j;
+	int **mat1,**mat2,**result,size[3]={4,5,6};
+	//cout<<"输入矩阵1的行数和列数"<<endl;
+	//cin>>size[0]>>size[1];
+	//cout<<"输入"<<size[0]<<"行数据，每行"<<size[1]<<"个整数"<<endl;
+	mat1=new intptr[size[0]];
+	for(i=0;i<size[0];++i)
+	{
+	    mat1[i]=new int[size[1]];
+	    for(j=0;j<size[1];++j)
+		mat1[i][j]=i+j;
+	}
+	//cout<<"输入矩阵2的列数"<<endl;
+	//cin>>size[2];
+	//cout<<"输入"<<size[1]<<"行数据，每行"<<size[2]<<"个整数"<<endl;
+	mat2=new intptr[size[1]];
+	for(i=0;i<size[1];++i)
+	{
+	    mat2[i]=new int[size[2]];
+	    for(j=0;j<size[2];++j)
+		mat2[i][j]=1;
+	}
+	result=new intptr[size[0]];
+	for(i=0;i<size[0];++i)
+		result[i]=new int[size[2]];
+
+	double time_start, time_end;	
+
+	time_start = clock();
+	
+	matrixMulti(mat1,mat2,result,size);
+
+	time_end = clock();
+	
+	cout<<"Time used: "<<setprecision(9)<<(double) ( (time_end - time_start) / 1000.0) <<endl;
+
+	return 0;
+}
+
+
+

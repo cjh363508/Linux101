@@ -1,0 +1,14 @@
+当数组为4×5  5*6时，没太大差别
+
+当数组为40×50×60时，大概是十倍左右
+./result
+Time used: 1.541
+./release
+Time used: 0.178
+
+当数组为400*500 500*600时，大概是5倍左右
+./result
+Time used: 891.368
+./release
+Time used: 171.224
+
